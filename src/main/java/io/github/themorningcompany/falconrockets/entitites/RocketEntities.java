@@ -16,10 +16,18 @@ import net.minecraftforge.event.RegistryEvent;
 import static io.github.themorningcompany.falconrockets.FalconRockets.MODID;
 
 public class RocketEntities {
-    public static EntityType<FalconRocket> FALCON_ENTITY = EntityType.Builder.create(FalconRocket::new, EntityClassification.MISC).build(MODID + ":falcon_rocket");
-    public static EntityType<CrewDragonRocket> CREW_DRAGON_ENTITY = EntityType.Builder.create(CrewDragonRocket::new, EntityClassification.MISC).build(MODID + ":crew_dragon_rocket");
-    public static EntityType<FalconHeavyRocket> FALCON_HEAVY_ENTITY = EntityType.Builder.create(FalconHeavyRocket::new, EntityClassification.MISC).build(MODID + ":falcon_heavy_rocket");
-    public static EntityType<FalconLandedRocket> FALCON_LANDED_ENTITY = EntityType.Builder.create(FalconLandedRocket::new, EntityClassification.MISC).build(MODID + ":falcon_landed_rocket");
+    public static EntityType<FalconRocket> FALCON_ENTITY = EntityType.Builder.create(FalconRocket::new, EntityClassification.MISC)
+            .size(3, 48)
+            .build(MODID + ":falcon_rocket");
+    public static EntityType<CrewDragonRocket> CREW_DRAGON_ENTITY = EntityType.Builder.create(CrewDragonRocket::new, EntityClassification.MISC)
+            .size(3, 48)
+            .build(MODID + ":crew_dragon_rocket");
+    public static EntityType<FalconHeavyRocket> FALCON_HEAVY_ENTITY = EntityType.Builder.create(FalconHeavyRocket::new, EntityClassification.MISC)
+            .size(3, 48)
+            .build(MODID + ":falcon_heavy_rocket");
+    public static EntityType<FalconLandedRocket> FALCON_LANDED_ENTITY = EntityType.Builder.create(FalconLandedRocket::new, EntityClassification.MISC)
+            .size(3, 48)
+            .build(MODID + ":falcon_landed_rocket");
 
     static {
         FALCON_ENTITY.setRegistryName(FalconRocketsRegistries.location("falcon_rocket"));

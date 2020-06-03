@@ -1,40 +1,21 @@
 package io.github.themorningcompany.falconrockets.entitites.rockets;
 
-import net.minecraft.entity.*;
+import io.github.themorningcompany.falconrockets.entitites.EntityRocket;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.FlyingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.DamageSource;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IWorld;
+import net.minecraft.network.IPacket;
+import net.minecraft.network.play.server.SSpawnObjectPacket;
+import net.minecraft.particles.BlockParticleData;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
-public class FalconRocket extends CreatureEntity {
-    public FalconRocket(EntityType<? extends CreatureEntity> type, World worldIn) {
+public class FalconRocket extends EntityRocket {
+    public FalconRocket(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
-        this.setInvulnerable(true);
-    }
-
-    @Override
-    public boolean canBeRiddenInWater() {
-        return true;
-    }
-
-    @Override
-    protected boolean canBeRidden(Entity entityIn) {
-        return entityIn instanceof PlayerEntity;
-    }
-
-
-
-    @Override
-    public boolean canBeRiddenInWater(Entity rider) {
-        return true;
-    }
-
-    @Override
-    public boolean canDespawn(double distanceToClosestPlayer) {
-        return false;
     }
 }

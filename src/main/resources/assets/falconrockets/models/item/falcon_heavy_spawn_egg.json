@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "falconrockets:item/falcon_heavy_egg"
+  }
+}

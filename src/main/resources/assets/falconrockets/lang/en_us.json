@@ -1,0 +1,11 @@
+{
+    "itemGroup.rockets": "Falcon Rockets",
+    "item.falconrockets.falcon_spawn_egg": "Falcon 9",
+    "item.falconrockets.crew_dragon_spawn_egg": "Crew Dragon",
+    "item.falconrockets.falcon_heavy_spawn_egg": "Falcon Heavy",
+    "item.falconrockets.falcon_landed_spawn_egg": "Falcon Landed",
+    "entity.falconrockets.falcon_rocket": "Falcon 9",
+    "entity.falconrockets.crew_dragon_rocket": "Crew Dragon",
+    "entity.falconrockets.falcon_heavy_rocket": "Falcon Heavy",
+    "entity.falconrockets.falcon_landed_rocket": "Falcon Landed"
+}

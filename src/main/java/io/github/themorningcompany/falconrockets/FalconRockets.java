@@ -46,11 +46,11 @@ public class FalconRockets
 
     private void setup(final FMLCommonSetupEvent event)
     {
-
+        RocketsRenderRegistry.registerEntityRenders();
     }
 
     private void clientRegistries(final FMLClientSetupEvent event) {
-        RocketsRenderRegistry.registerEntityRenders();
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

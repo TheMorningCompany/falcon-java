@@ -1,5 +1,6 @@
 package io.github.themorningcompany.falconrockets.entitites;
 
+import io.github.themorningcompany.falconrockets.entitites.rockets.CrewDragonRocket;
 import io.github.themorningcompany.falconrockets.network.Networking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
@@ -56,8 +57,10 @@ public class EntityRocket extends FlyingEntity {
 
     @Override
     protected boolean processInteract(PlayerEntity player, Hand hand) {
-        player.startRiding(this);
-        player.rotationPitch = 270;
+        if (this instanceof CrewDragonRocket) {
+            player.startRiding(this);
+            player.rotationPitch = 270;
+        }
 //        setLaunched(true);
         return true;
     }
@@ -101,7 +104,7 @@ public class EntityRocket extends FlyingEntity {
 
     @Override
     public double getMountedYOffset() {
-        return -10;
+        return this.height - 5;
     }
 
     @Nullable

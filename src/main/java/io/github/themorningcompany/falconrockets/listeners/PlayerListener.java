@@ -1,6 +1,7 @@
 package io.github.themorningcompany.falconrockets.listeners;
 
 import io.github.themorningcompany.falconrockets.entitites.EntityRocket;
+import io.github.themorningcompany.falconrockets.entitites.rockets.FalconLandedRocket;
 import javafx.scene.input.KeyCode;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -19,7 +20,9 @@ public class PlayerListener {
         if (!(event.getSource().getTrueSource() instanceof PlayerEntity)) return;
         if (event.getEntity() instanceof EntityRocket) {
             event.setCanceled(true);
-            ((EntityRocket) event.getEntity()).setLaunched(true);
+            if (!(event.getEntity() instanceof FalconLandedRocket)) {
+                ((EntityRocket) event.getEntity()).setLaunched(true);
+            }
         }
     }
 

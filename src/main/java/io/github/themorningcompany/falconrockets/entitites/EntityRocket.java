@@ -24,6 +24,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.fml.network.NetworkDirection;
 import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.fml.network.PacketDistributor;
 
@@ -75,10 +76,9 @@ public class EntityRocket extends FlyingEntity {
             }
             ticksSinceLaunch++;
             double velocity = MathHelper.clamp(Math.pow(ticksSinceLaunch, 1.01), 0, MAX_SPEED);
-//            move(MoverType.SELF, new Vec3d(0, velocity, 0));
-            this.setMoveVertical((float) velocity);
-//            Networking.INSTANCE.sendToServer(new SEntityVelocityPacket(this));
-//            this.world.sendPacketToServer(new SEntityVelocityPacket(this));
+            move(MoverType.SELF, new Vec3d(0, velocity, 0));
+//            this.setMoveVertical((float) velocity);
+            this.setPacketCoordinates(this.prevPosX, this.prevPosY, this.prevPosZ);
             double thrusterDistance = 1;
             for (int angle = 0; angle <= 360; angle += 45) {
                 double x = prevPosX + Math.cos(angle) * thrusterDistance;

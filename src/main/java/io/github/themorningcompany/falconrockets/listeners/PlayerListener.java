@@ -26,6 +26,7 @@ public class PlayerListener {
     @SubscribeEvent
     public static void onKey(InputEvent.KeyInputEvent event) {
         PlayerEntity player = Minecraft.getInstance().player;
+        if (player == null) return;
         Entity ridingEntity = player.getRidingEntity();
 
         if (ridingEntity == null) return;
@@ -33,7 +34,9 @@ public class PlayerListener {
             switch (event.getKey()) {
                 case 32:
                     EntityRocket rocket = (EntityRocket) ridingEntity;
+                    player.stopRiding();
                     rocket.setLaunched(true);
+                    player.startRiding(rocket);
                     break;
             }
         }

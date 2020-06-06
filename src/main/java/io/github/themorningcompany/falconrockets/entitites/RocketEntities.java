@@ -6,6 +6,7 @@ import io.github.themorningcompany.falconrockets.entitites.rockets.CrewDragonRoc
 import io.github.themorningcompany.falconrockets.entitites.rockets.FalconHeavyRocket;
 import io.github.themorningcompany.falconrockets.entitites.rockets.FalconLandedRocket;
 import io.github.themorningcompany.falconrockets.entitites.rockets.FalconRocket;
+import io.github.themorningcompany.falconrockets.entitites.vehicles.DroneShip;
 import io.github.themorningcompany.falconrockets.lists.ItemList;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -28,12 +29,15 @@ public class RocketEntities {
     public static EntityType<FalconLandedRocket> FALCON_LANDED_ENTITY = EntityType.Builder.create(FalconLandedRocket::new, EntityClassification.MISC)
             .size(3, 48)
             .build(MODID + ":falcon_landed_rocket");
-
+    public static EntityType<DroneShip> DRONE_SHIP_ENTITY = EntityType.Builder.create(DroneShip::new, EntityClassification.MISC)
+            .size(80, 8)
+            .build(MODID + ":drone_ship");
     static {
         FALCON_ENTITY.setRegistryName(FalconRocketsRegistries.location("falcon_rocket"));
         CREW_DRAGON_ENTITY.setRegistryName(FalconRocketsRegistries.location("crew_dragon_rocket"));
         FALCON_HEAVY_ENTITY.setRegistryName(FalconRocketsRegistries.location("falcon_heavy_rocket"));
         FALCON_LANDED_ENTITY.setRegistryName(FalconRocketsRegistries.location("falcon_landed_rocket"));
+        DRONE_SHIP_ENTITY.setRegistryName(FalconRocketsRegistries.location("drone_ship"));
     }
 
     public static void registerEntitySpawnEggs(final RegistryEvent.Register<Item> event) {
@@ -41,7 +45,8 @@ public class RocketEntities {
                 ItemList.falcon_spawn_egg = registerEntitySpawnEgg(FALCON_ENTITY, 0x000000, 0xffffff, "falcon_spawn_egg"),
                 ItemList.crew_dragon_spawn_egg = registerEntitySpawnEgg(CREW_DRAGON_ENTITY, 0x000000, 0xffffff, "crew_dragon_spawn_egg"),
                 ItemList.falcon_heavy_spawn_egg = registerEntitySpawnEgg(FALCON_HEAVY_ENTITY, 0x000000, 0xffffff, "falcon_heavy_spawn_egg"),
-                ItemList.falcon_landed_spawn_egg = registerEntitySpawnEgg(FALCON_LANDED_ENTITY, 0x000000, 0xffffff, "falcon_landed_spawn_egg")
+                ItemList.falcon_landed_spawn_egg = registerEntitySpawnEgg(FALCON_LANDED_ENTITY, 0x000000, 0xffffff, "falcon_landed_spawn_egg"),
+                ItemList.drone_ship_spawn_egg = registerEntitySpawnEgg(DRONE_SHIP_ENTITY, 0x000000, 0xffffff, "drone_ship_spawn_egg")
         );
     }
 

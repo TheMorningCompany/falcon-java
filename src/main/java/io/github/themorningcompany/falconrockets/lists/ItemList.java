@@ -7,4 +7,5 @@ public class ItemList {
     public static Item crew_dragon_spawn_egg;
     public static Item falcon_heavy_spawn_egg;
     public static Item falcon_landed_spawn_egg;
+    public static Item drone_ship_spawn_egg;
 }

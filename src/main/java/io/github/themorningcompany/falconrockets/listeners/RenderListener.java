@@ -1,6 +1,6 @@
 package io.github.themorningcompany.falconrockets.listeners;
 
-import io.github.themorningcompany.falconrockets.entitites.EntityRocket;
+import io.github.themorningcompany.falconrockets.entitites.supers.EntityRocket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.client.event.RenderWorldLastEvent;

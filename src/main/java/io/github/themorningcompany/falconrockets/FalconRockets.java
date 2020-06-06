@@ -1,15 +1,20 @@
 package io.github.themorningcompany.falconrockets;
 
 import io.github.themorningcompany.falconrockets.client.renders.RocketsRenderRegistry;
+import io.github.themorningcompany.falconrockets.entitites.rockets.FalconRocket;
 import io.github.themorningcompany.falconrockets.lists.ItemList;
+import io.github.themorningcompany.falconrockets.lists.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -32,9 +37,13 @@ public class FalconRockets
     public static final String VERSION = "1.0";
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
+    public static FalconRockets INSTANCE;
 
     public static final ItemGroup rockets = new RocketsItemGroup();
     public FalconRockets() {
+
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the doClientStuff method for modloading
@@ -42,6 +51,10 @@ public class FalconRockets
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+//        ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+
+        INSTANCE = this;
     }
 
     private void setup(final FMLCommonSetupEvent event)

@@ -4,6 +4,7 @@ import io.github.themorningcompany.falconrockets.client.renders.rockets.CrewDrag
 import io.github.themorningcompany.falconrockets.client.renders.rockets.FalconHeavyRocketRender;
 import io.github.themorningcompany.falconrockets.client.renders.rockets.FalconLandedRocketRender;
 import io.github.themorningcompany.falconrockets.client.renders.rockets.FalconRocketRender;
+import io.github.themorningcompany.falconrockets.client.renders.vehicles.DroneShipRender;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -17,5 +18,6 @@ public class RocketsRenderRegistry {
         RenderingRegistry.registerEntityRenderingHandler(CREW_DRAGON_ENTITY, new CrewDragonRocketRender.RenderFactory());
         RenderingRegistry.registerEntityRenderingHandler(FALCON_HEAVY_ENTITY, new FalconHeavyRocketRender.RenderFactory());
         RenderingRegistry.registerEntityRenderingHandler(FALCON_LANDED_ENTITY, new FalconLandedRocketRender.RenderFactory());
+        RenderingRegistry.registerEntityRenderingHandler(DRONE_SHIP_ENTITY, new DroneShipRender.RenderFactory());
     }
 }
